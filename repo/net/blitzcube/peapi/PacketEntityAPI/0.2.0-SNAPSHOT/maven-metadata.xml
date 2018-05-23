@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>net.blitzcube.peapi</groupId>
+  <artifactId>PacketEntityAPI</artifactId>
+  <version>0.2.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20180523.201634</timestamp>
+      <buildNumber>3</buildNumber>
+    </snapshot>
+    <lastUpdated>20180523201634</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>0.2.0-20180523.201634-3</value>
+        <updated>20180523201634</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
