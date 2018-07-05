@@ -1,4 +1,6 @@
 import React from 'react';
+import { hot } from 'react-hot-loader';
+
 import Interactive from 'react-interactive';
 import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
@@ -7,7 +9,7 @@ import PageNotFound from './PageNotFound';
 import Breadcrumbs from './Breadcrumbs';
 import s from '../styles/app.style';
 
-export default function App() {
+const App = function() {
   return (
     <div style={s.root}>
       <h1 style={s.title}>Single Page Apps for GitHub Pages - customized by iso2013 :D</h1>
@@ -17,7 +19,6 @@ export default function App() {
         style={s.repoLink}
         {...s.link}
       >https://github.com/rafrex/spa-github-pages</Interactive>
-      <img src={Icon}></img>
 
       <nav style={s.breadcrumbs}>
         <Breadcrumbs />
@@ -44,3 +45,5 @@ export default function App() {
     </div>
   );
 }
+
+export default hot(module)(App);
