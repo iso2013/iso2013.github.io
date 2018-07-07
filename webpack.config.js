@@ -14,11 +14,14 @@ plugins.push(new CleanWebpackPlugin(["build"]));
 plugins.push(new webpack.HotModuleReplacementPlugin());
 
 module.exports = {
-  entry: `${__dirname}/src/js/index.js`,
+  entry: {
+    main: `${__dirname}/src/js/index.js`
+  },
   output: {
     path: `${__dirname}/build`,
     publicPath: '/build/',
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js'
   },
   devServer: {
     hot: true
@@ -26,7 +29,7 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', query: { presets: ['env', 'react'], plugins: ["transform-object-rest-spread", "react-hot-loader/babel"] } },
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
       {
         test: /\.css$/,
         use: [
