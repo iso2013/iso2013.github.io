@@ -4,8 +4,8 @@
   <artifactId>Plugin</artifactId>
   <versioning>
     <versions>
-      <version>0.4.0-SNAPSHOT</version>
+      <version>0.4.3-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20180609192221</lastUpdated>
+    <lastUpdated>20180727020250</lastUpdated>
   </versioning>
 </metadata>
