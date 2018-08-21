@@ -4,8 +4,8 @@
   <artifactId>PacketEntityAPI</artifactId>
   <versioning>
     <versions>
-      <version>0.7.0-SNAPSHOT</version>
+      <version>0.7.1-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20180821195415</lastUpdated>
+    <lastUpdated>20180821230351</lastUpdated>
   </versioning>
 </metadata>
