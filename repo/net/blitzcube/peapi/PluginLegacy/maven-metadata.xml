@@ -4,8 +4,8 @@
   <artifactId>PluginLegacy</artifactId>
   <versioning>
     <versions>
-      <version>0.7.0-SNAPSHOT</version>
+      <version>0.7.1-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20180821195617</lastUpdated>
+    <lastUpdated>20180821230552</lastUpdated>
   </versioning>
 </metadata>
