@@ -30,7 +30,7 @@ const page = topHeight => theme => ({
     }
 });
 
-const navBar = height => theme => console.log(theme) || ({
+const navBar = height => theme => ({
     navBar: {
         display: "flex",
         justifyContent: "center",
@@ -63,6 +63,11 @@ const navBar = height => theme => console.log(theme) || ({
         minHeight: height,
         minWidth: 72,
         fontWeight: 700
+    },
+    tabRipple: {
+        "&:hover": {
+            backgroundColor: "rgba(255,255,255,0.08)"
+        }
     },
     labelContainer: {
         paddingTop: 3,

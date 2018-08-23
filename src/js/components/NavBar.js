@@ -54,7 +54,8 @@ class NavBar extends React.Component {
         const tabClasses = {
             label: classes.tabText,
             textColorInherit: classes.tabText,
-            labelContainer: classes.labelContainer
+            labelContainer: classes.labelContainer,
+            root: classes.tabRipple
         }
 
         let renderedTabs = tabs.map((item, idx) => (

@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { withStyles } from '@material-ui/core';
 
-import { futureImage as styles } from '../styles/components';
+import { futureImage as styles } from '../../styles/components';
 
 class FutureImage extends React.Component {
     constructor(props){
