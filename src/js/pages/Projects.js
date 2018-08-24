@@ -1,7 +1,19 @@
 import React from 'react';
 
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 import Fade from '@material-ui/core/Fade';
+
+const styles = theme => ({
+    header: {
+        color: "#fff"
+    },
+    headerBackdrop: {
+        backgroundColor:"#373737",
+        margin: "-54px -24px 0px -24px",
+        padding: "54px 24px 24px 24px"
+    }
+});
 
 class Projects extends React.Component {
     constructor(props) {
@@ -10,24 +22,16 @@ class Projects extends React.Component {
     }
 
     render() {
+        const { classes } = this.props;
+
         return (
             <Fade in={true} timeout={250}>
-                <div>
-                    <Typography variant="display1">This page has not been implemented yet!</Typography>
-                    <Typography variant="body1">
-                        <br /><br />
-
-                        Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
-    
-                        Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
-    
-                        Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
-                        Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
-                    </Typography>
+                <div className={classes.headerBackdrop}>
+                    <Typography variant="display1" align="center" classes={{root: classes.header}}>Projects</Typography>
                 </div>
             </Fade>
         );
     }
 }
 
-export default Projects;
+export default withStyles(styles)(Projects);

@@ -18,7 +18,7 @@ import FuturePage from './future/FuturePage';
 
 const HomeLogo = (props) => {
   return <Button {...props}>
-    <img src={Logo} height={24} />
+    <img src={Logo} height={32} />
   </Button>
 }
 
@@ -38,15 +38,13 @@ class App extends React.Component {
     this.tabComponents = [];
     this.routes = [];
     tabs.forEach((item) => {
-      let component = FuturePage(item.import, 64, 384);
       this.tabComponents.push({
         component: item.component,
         label: item.label,
         icon: item.icon,
         path: item.path,
-        page: component,
       });
-      this.routes.push(<Route key={item.path} exact={item.path === "/"} path={item.path} component={component} />);
+      this.routes.push(<Route key={item.path} exact={item.path === "/"} path={item.path} component={FuturePage(item.import, 64, 384)} />);
     });
   }
 
