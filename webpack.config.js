@@ -1,5 +1,4 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
 let plugins = process.argv.indexOf('-p') === -1 ? [] : [
@@ -13,8 +12,6 @@ let plugins = process.argv.indexOf('-p') === -1 ? [] : [
 plugins.push(new CleanWebpackPlugin(["build"]));
 
 plugins.push(new webpack.HotModuleReplacementPlugin());
-
-plugins.push(new CopyWebpackPlugin([{ from: 'src/icons'}]))
 
 module.exports = {
   entry: {
