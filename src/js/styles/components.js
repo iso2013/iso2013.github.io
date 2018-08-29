@@ -30,6 +30,32 @@ const page = topHeight => theme => ({
     }
 });
 
+const header = topHeight => theme => ({
+    header: {
+        backgroundColor: "#373737",
+        marginTop: -(theme.spacing.unit * 3 + (topHeight / 2)),
+        marginLeft: -theme.spacing.unit * 3,
+        marginRight: -theme.spacing.unit * 3,
+        marginBottom: 0,
+        paddingTop: theme.spacing.unit * 3 + (topHeight / 2),
+        paddingLeft: theme.spacing.unit * 3,
+        paddingRight: theme.spacing.unit * 3,
+        paddingBottom: theme.spacing.unit * 3,
+        color: "#fff"
+    },
+    wrapper: {
+        paddingTop: theme.spacing.unit * 3
+    },
+    [tinyWidthString]: {
+        header: {
+            paddingLeft: theme.spacing.unit * 2,
+            paddingRight: theme.spacing.unit * 2,
+            marginLeft: -theme.spacing.unit * 2,
+            marginRight: -theme.spacing.unit * 2
+        }
+    }
+});
+
 const navBar = height => theme => ({
     navBar: {
         display: "flex",
@@ -175,4 +201,4 @@ const donateStep = theme => ({
     }
 });
 
-export { page, navBar, futureImage, donateStepper, donateStep };
+export { page, header, navBar, futureImage, donateStepper, donateStep };

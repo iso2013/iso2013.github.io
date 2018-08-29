@@ -4,7 +4,6 @@ import { hot } from 'react-hot-loader';
 
 import { Route } from "react-router";
 
-import { withStyles } from '@material-ui/core/styles';
 import Logo from '../../assets/img/logo.svg';
 import InfoIcon from '@material-ui/icons/FeedbackSharp';
 import WorkIcon from '@material-ui/icons/WorkSharp';
