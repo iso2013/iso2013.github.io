@@ -21,15 +21,18 @@ class NavBar extends React.Component {
 
     getCurrentVal = (path, mobile) => {
         if (!path) return 0;
-        var val = 0;
+        var val = -1;
+        var genericVal = 0;
         for (let i = this.tabs.length; i-- > 0;) {
-            if (path.startsWith(this.tabs[i].path)) {
+            if (path === this.tabs[i].path) {
                 val = i;
                 break;
+            } else if (this.tabs[i].matchGeneric){
+                genericVal = i;
             }
         }
         if (val >= 1 && mobile) return undefined;
-        return val;
+        return val < 0 ? genericVal : val;
     }
 
     handleChange = (_, value) => {

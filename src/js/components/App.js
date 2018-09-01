@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from "react-router-dom";
 import { hot } from 'react-hot-loader';
 
-import { Route } from "react-router";
+import { Route, Switch } from "react-router";
 
 import Logo from '../../assets/img/logo.svg';
 import InfoIcon from '@material-ui/icons/FeedbackSharp';
@@ -24,10 +24,11 @@ const HomeLogo = (props) => {
 const tabs = [
   { component: HomeLogo, path: "/", import: () => import("../pages/Home") },
   { label: "About", icon: <InfoIcon />, path: "/about", import: () => import("../pages/About") },
-  { label: "Projects", icon: <WorkIcon />, path: "/projects", import: () => import("../pages/Projects") },
+  { label: "Projects", icon: <WorkIcon />, path: "/projects", import: () => import("../pages/Projects"), matchGeneric: true },
   { label: "Resume", icon: <AssignmentIcon />, path: "/resume", import: () => import("../pages/Resume") },
   { label: "Contact", icon: <EmailIcon />, path: "/contact", import: () => import("../pages/Contact") },
-  { label: "Ideas", icon: <AllInboxIcon />, path: "/ideas", import: () => import("../pages/Ideas") }
+  { label: "Ideas", icon: <AllInboxIcon />, path: "/ideas", import: () => import("../pages/Ideas") },
+  { generic: true, path: "/:projectName", import: () => import("../pages/Projects") }
 ]
 
 class App extends React.Component {
@@ -37,20 +38,27 @@ class App extends React.Component {
     this.tabComponents = [];
     this.routes = [];
     tabs.forEach((item) => {
-      this.tabComponents.push({
-        component: item.component,
-        label: item.label,
-        icon: item.icon,
-        path: item.path,
-      });
-      this.routes.push(<Route key={item.path} exact={item.path === "/"} path={item.path} component={FuturePage(item.import, 64, 384)} />);
+      if (item.generic) {
+        this.routes.push(<Route key={item.path} path={item.path} component={FuturePage(item.import, 64, 384)} />);
+      } else {
+        this.tabComponents.push({
+          component: item.component,
+          label: item.label,
+          icon: item.icon,
+          path: item.path,
+          matchGeneric: item.matchGeneric
+        });
+        this.routes.push(<Route key={item.path} exact={item.path === "/"} path={item.path} component={FuturePage(item.import, 64, 384)} />);
+      }
     });
   }
 
   render() {
     return (
       <Page navBar={<NavBar tabs={this.tabComponents} />} >
-        {this.routes}
+        <Switch>
+          {this.routes}
+        </Switch>
       </Page>
     );
   }
