@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import LoadingProject from './LoadingProject';
 import Project from './Project';
 import Toolbar from './Toolbar';
+import FailedProject from './FailedProject';
 
 const styles = theme => ({
     wrapper: {
@@ -56,7 +57,7 @@ class ProjectsGroup extends React.Component {
     }
 
     render() {
-        const { classes, projects, loadingProjects, categories } = this.props;
+        const { classes, projects, loadingProjects, categories, errorMessage } = this.props;
 
         let projectObjects = [], loadingProjectObjects = [];
         for (var o in projects) {
@@ -80,7 +81,12 @@ class ProjectsGroup extends React.Component {
             );
         }
 
-        for (var i = 0; i < loadingProjects; i++) loadingProjectObjects.push(<LoadingProject key={i + "load"} />);
+        if(errorMessage){
+            loadingProjectObjects.push(<FailedProject message={errorMessage}/>);
+        } else {
+            for (var i = 0; i < loadingProjects; i++)
+                loadingProjectObjects.push(<LoadingProject key={i + "load"} />);
+        }
 
         return (
             <div className={classes.wrapper}>

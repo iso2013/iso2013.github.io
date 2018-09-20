@@ -30,7 +30,7 @@ class Projects extends React.Component {
                     }
 
                     content={
-                        <ProjectsGroup categories={this.state.categories} projects={this.state.projects} loadingProjects={this.state.loadingProjects} />
+                        <ProjectsGroup categories={this.state.categories} projects={this.state.projects} loadingProjects={this.state.loadingProjects} errorMessage={"This is a test"} />
                     }
                 />
             </Fade>
