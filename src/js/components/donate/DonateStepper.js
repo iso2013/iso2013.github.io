@@ -8,7 +8,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import { donateStepper as stepperStyles, donateStep as stepStyles } from '../../styles/components';
+import { donateStepper as stepperStyles, donateStep as stepStyles } from '../../styles/donate';
 
 class DonateStepperConnector extends React.Component {
     constructor(props) {
