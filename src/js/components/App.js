@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from "react-router-dom";
 import { hot } from 'react-hot-loader';
 
-import { Route, Switch } from "react-router";
+import { Redirect, Route, Switch } from "react-router";
 
 import Logo from '../../assets/img/logo.svg';
 import InfoIcon from '@material-ui/icons/FeedbackSharp';
@@ -24,11 +24,13 @@ const HomeLogo = (props) => {
 const tabs = [
   { component: HomeLogo, path: "/", import: () => import("../pages/Home") },
   { label: "About", icon: <InfoIcon />, path: "/about", import: () => import("../pages/About") },
-  { label: "Projects", icon: <WorkIcon />, path: "/projects", import: () => import("../pages/Projects"), matchGeneric: true },
+  { label: "Projects", icon: <WorkIcon />, path: "/projects", import: () => import("../pages/Projects") },
   { label: "Resume", icon: <AssignmentIcon />, path: "/resume", import: () => import("../pages/Resume") },
   { label: "Contact", icon: <EmailIcon />, path: "/contact", import: () => import("../pages/Contact") },
   { label: "Ideas", icon: <AllInboxIcon />, path: "/ideas", import: () => import("../pages/Ideas") },
-  { generic: true, path: "/:projectName", import: () => import("../pages/Projects") }
+  { redirect: true, path: "/downloads", target: "/projects" },
+  { generic: true, path: "/downloads/:projectName", import: () => import("../pages/Projects") },
+  { path: "/:url", import: () => import("../pages/404") }
 ]
 
 class App extends React.Component {
@@ -40,7 +42,11 @@ class App extends React.Component {
     tabs.forEach((item) => {
       if (item.generic) {
         this.routes.push(<Route key={item.path} path={item.path} component={FuturePage(item.import, 64, 384)} />);
-      } else {
+        return;
+      } else if (item.redirect) {
+        this.routes.push(<Route key={item.path} path={item.path} render={() => <Redirect to={item.target} />} />);
+        return;
+      } else if (item.label || item.component) {
         this.tabComponents.push({
           component: item.component,
           label: item.label,
@@ -48,8 +54,8 @@ class App extends React.Component {
           path: item.path,
           matchGeneric: item.matchGeneric
         });
-        this.routes.push(<Route key={item.path} exact={item.path === "/"} path={item.path} component={FuturePage(item.import, 64, 384)} />);
       }
+      this.routes.push(<Route key={item.path} exact={item.path === "/"} path={item.path} component={FuturePage(item.import, 64, 384)} />);
     });
   }
 

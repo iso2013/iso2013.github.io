@@ -11,11 +11,12 @@ class HeaderedPage extends React.Component {
     }
 
     render() {
-        const { classes, header, content } = this.props;
+        const { classes, header, content, error } = this.props;
 
+        let headerClass = error ? classes.errorHeader : classes.header;
         return (
             <div>
-                <div className={classes.header}>
+                <div className={headerClass}>
                     {header}
                 </div>
                 <div className={classes.wrapper}>

@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import { loadingProject as styles } from '../../styles/projects';
 
-class Project extends React.Component {
+class LoadingProject extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
@@ -40,4 +40,4 @@ class Project extends React.Component {
     }
 }
 
-export default withStyles(styles)(Project);
+export default withStyles(styles)(LoadingProject);

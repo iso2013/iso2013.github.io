@@ -43,6 +43,18 @@ const header = topHeight => theme => ({
         paddingBottom: theme.spacing.unit * 3,
         color: "#fff"
     },
+    errorHeader: {
+        backgroundColor: theme.palette.error[900],
+        marginTop: -(theme.spacing.unit * 3 + (topHeight / 2)),
+        marginLeft: -theme.spacing.unit * 3,
+        marginRight: -theme.spacing.unit * 3,
+        marginBottom: 0,
+        paddingTop: theme.spacing.unit * 3 + (topHeight / 2),
+        paddingLeft: theme.spacing.unit * 3,
+        paddingRight: theme.spacing.unit * 3,
+        paddingBottom: theme.spacing.unit * 3,
+        color: "#fff"
+    },
     wrapper: {
         paddingTop: theme.spacing.unit * 3
     },

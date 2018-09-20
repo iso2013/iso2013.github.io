@@ -69,7 +69,7 @@ class ProjectsGroup extends React.Component {
         }
 
         if(errorMessage){
-            loadingProjectObjects.push(<FailedProject message={errorMessage}/>);
+            loadingProjectObjects.push(<FailedProject message={errorMessage} key={"failure"}/>);
         } else {
             for (var i = 0; i < loadingProjects; i++)
                 loadingProjectObjects.push(<LoadingProject key={i + "load"} />);
