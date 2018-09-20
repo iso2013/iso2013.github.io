@@ -9,61 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import CategoriesBar from './CategoriesBar';
 
-const styles = theme => ({
-    entry: {
-        width: "70%",
-        marginTop: theme.spacing.unit * 2,
-        display: "flex",
-        alignItems: "flex-start"
-    },
-    spacer: {
-        flexGrow: 1,
-        flexShrink: 1
-    },
-    details: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "stretch",
-        flexGrow: 1,
-        paddingLeft: theme.spacing.unit * 2
-    },
-    titleAndTags: {
-        display: "flex",
-        alignItems: "center",
-        marginBottom: theme.spacing.unit
-    },
-    icon: {
-        minWidth: 96,
-        minHeight: 96,
-        marginBottom: theme.spacing.unit * 2
-    },
-    link: {
-        marginLeft: theme.spacing.unit,
-        fontSize: 12,
-        borderRadius: "unset"
-    },
-    linkIcon: {
-        fontSize: 16,
-        paddingRight: 4
-    },
-    searchTitle: {
-        opacity: 0.3,
-        display: "inline"
-    },
-    title: {
-        display: "inline"
-    },
-    "@media (max-width: 1064px)": {
-        entry: {
-            flexWrap: "wrap",
-            alignItems: "center",
-            flexDirection: "column"
-        },
-        details: {
-            width: "100%"
-        }
-    }
-});
+import { project as styles } from '../../styles/projects';
 
 class Project extends React.Component {
     constructor(props) {

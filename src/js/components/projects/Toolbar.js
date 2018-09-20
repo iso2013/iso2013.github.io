@@ -9,27 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import CategoriesBar from './CategoriesBar';
 
-const styles = theme => ({
-    toolbar: {
-        width: "70%",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "right",
-        marginBottom: theme.spacing.unit * 1
-    },
-    searchButton: {
-        maxHeight: 36,
-        maxWidth: 36
-    },
-    spacer: {
-        flexGrow: 1,
-        flexShrink: 1
-    },
-    search: {
-        flexGrow: 1,
-        flexShrink: 1
-    }
-});
+import { toolbar as styles } from '../../styles/projects';
 
 class Toolbar extends React.Component {
     constructor(props) {

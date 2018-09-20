@@ -4,14 +4,7 @@ import DocsIcon from '@material-ui/icons/FileCopySharp';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
-const styles = theme => ({
-    entry: {
-        width: "70%",
-        marginTop: theme.spacing.unit * 1,
-        background: "#ffeeee",
-        padding: theme.spacing.unit
-    }
-});
+import { failedProject as styles } from '../../styles/projects';
 
 class Project extends React.Component {
     constructor(props) {

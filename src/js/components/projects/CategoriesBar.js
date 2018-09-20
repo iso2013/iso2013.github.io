@@ -4,61 +4,9 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVertSharp';
-import { withStyles, MenuItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { withStyles, MenuItem } from '@material-ui/core';
 
-const styles = theme => ({
-    button: {
-        marginLeft: theme.spacing.unit,
-        fontSize: 12,
-        borderRadius: "unset",
-        flexShrink: 0
-    },
-    tinyButton: {
-        marginLeft: theme.spacing.unit,
-        fontSize: 10,
-        minHeight: "unset",
-        minWidth: "unset",
-        padding: "2px 6px",
-        borderRadius: "unset"
-    },
-    listButton: {
-        visibility: "collapse",
-        display: "none",
-        maxHeight: 36,
-        maxWidth: 36
-    },
-    tinyListButton: {
-        marginLeft: theme.spacing.unit,
-        fontSize: 10,
-        minHeight: "unset",
-        minWidth: "unset",
-        padding: "2px 6px",
-        borderRadius: "unset",
-        visibility: "collapse",
-        display: "none",
-    },
-    tinyListButtonIcon: {
-        fontSize: 14
-    },
-    "@media (max-width: 1064px)": {
-        button: {
-            visibility: "collapse",
-            display: "none"
-        },
-        listButton: {
-            visibility: "unset",
-            display: "unset"
-        },
-        tinyButton: {
-            visibility: "collapse",
-            display: "none"
-        },
-        tinyListButton: {
-            visibility: "unset",
-            display: "unset"
-        }
-    }
-});
+import { categoriesBar as styles } from '../../styles/projects';
 
 class CategoriesBar extends React.Component {
     constructor(props) {

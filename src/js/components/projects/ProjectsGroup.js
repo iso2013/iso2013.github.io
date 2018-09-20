@@ -8,20 +8,7 @@ import Project from './Project';
 import Toolbar from './Toolbar';
 import FailedProject from './FailedProject';
 
-const styles = theme => ({
-    wrapper: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center"
-    },
-    divider: {
-        width: "70%",
-        marginBottom: theme.spacing.unit
-    },
-    collapse: {
-        width: "100%"
-    }
-});
+import { projectsGroup as styles } from '../../styles/projects';
 
 class ProjectsGroup extends React.Component {
     constructor(props) {
