@@ -110,6 +110,7 @@ class CategoriesBar extends React.Component {
                     key={i}
                     onClick={this.handleClickMobile(i, onChange)}
                     classes={{ root: classes.navBarMenuRoot }}
+                    selected={i === selected}
                 >
                     {realCategories[o]}
                 </MenuItem>
