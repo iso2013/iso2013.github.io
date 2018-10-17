@@ -29,7 +29,7 @@ const tabs = [
   { label: "Contact", icon: <EmailIcon />, path: "/contact", import: () => import("../pages/Contact") },
   { label: "Ideas", icon: <AllInboxIcon />, path: "/ideas", import: () => import("../pages/Ideas") },
   { redirect: true, path: "/downloads", target: "/projects" },
-  { generic: true, path: "/downloads/:projectName", import: () => import("../pages/Projects") },
+  { generic: true, path: "/downloads/:projectName", import: () => import("../pages/Download") },
   { path: "/:url", import: () => import("../pages/404") }
 ]
 
@@ -44,7 +44,7 @@ class App extends React.Component {
         this.routes.push(<Route key={item.path} path={item.path} component={FuturePage(item.import, 64, 384)} />);
         return;
       } else if (item.redirect) {
-        this.routes.push(<Route key={item.path} path={item.path} render={() => <Redirect to={item.target} />} />);
+        this.routes.push(<Route key={item.path} path={item.path} exact={true} render={() => <Redirect to={item.target} />} />);
         return;
       } else if (item.label || item.component) {
         this.tabComponents.push({
