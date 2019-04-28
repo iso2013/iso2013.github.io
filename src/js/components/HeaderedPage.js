@@ -2,10 +2,11 @@ import React from 'react';
 
 import { withStyles } from '@material-ui/core';
 
+import Fade from '@material-ui/core/Fade';
 import { header as styles } from '../styles/components';
 
 class HeaderedPage extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.props = props;
     }
@@ -13,10 +14,9 @@ class HeaderedPage extends React.Component {
     render() {
         const { classes, header, content, error } = this.props;
 
-        let headerClass = error ? classes.errorHeader : classes.header;
         return (
             <div>
-                <div className={headerClass}>
+                <div className={error ? classes.errorHeader : classes.header}>
                     {header}
                 </div>
                 <div className={classes.wrapper}>
@@ -27,4 +27,13 @@ class HeaderedPage extends React.Component {
     }
 }
 
-export default withStyles(styles(60))(HeaderedPage);
+function wrapComponents(title, content) {
+    return (
+        <Fade in={true} timeout={250}>
+            <HeaderedPage header={title} content={content} />
+        </Fade>
+    );
+}
+
+HeaderedPage = withStyles(styles(60))(HeaderedPage);
+export { HeaderedPage, wrapComponents };

@@ -6,7 +6,10 @@ import Tabs from '@material-ui/core/Tabs';
 import MoreIcon from '@material-ui/icons/MoreVertSharp';
 import Menu from '@material-ui/core/Menu';
 import Tab from '@material-ui/core/Tab';
-import { withStyles, MenuItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import MenuItem from '@material-ui/core';
+import ListItemIcon from '@material-ui/core';
+import ListItemText from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 
 import { navBar as styles } from '../styles/components';
 
@@ -28,7 +31,7 @@ class NavBar extends React.Component {
                 val = i;
                 break;
             } else if (this.tabs[i].matchGeneric){
-                genericVal = i;
+                genericVal = i; //TODO: Make this categorize projects as the projects category.
             }
         }
         if (val >= 1 && mobile) return undefined;

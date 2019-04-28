@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import Fade from '@material-ui/core/Fade';
 import Typography from '@material-ui/core/Typography';
 
-import HeaderedPage from '../components/HeaderedPage';
+import { HeaderedPage} from '../components/HeaderedPage';
 
 class PageNotFound extends React.Component {
     constructor(props) {

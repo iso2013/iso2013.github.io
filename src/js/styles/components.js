@@ -144,4 +144,55 @@ const futureImage = theme => ({
     }
 });
 
-export { page, header, navBar, futureImage };
+const donation = theme => ({
+    donate: {
+        display: "flex",
+        [tinyWidthString]: {
+            flexDirection: "column"
+        }
+    },
+    donateText: {
+        flexGrow: "1",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: theme.spacing.unit
+    },
+    processorCaption: {
+        paddingTop: theme.spacing.unit * 2
+    },
+    [tinyWidthString]: {
+        mobileHidden: {
+            display: "none"
+        }
+    }
+});
+
+const configurator = theme => ({
+    optionGroup: {
+        display: "flex",
+        alignItems: "center"
+    },
+    optionButton: {
+        marginLeft: theme.spacing.unit,
+        fontSize: 12,
+        borderRadius: "unset",
+        flexShrink: 0
+    },
+    topSpace: {
+        paddingTop: theme.spacing.unit
+    }
+});
+
+const warning = theme => ({
+    outdatedWarning: {
+        backgroundColor: theme.palette.error[500],
+        color: "white",
+        marginTop: theme.spacing.unit * 2,
+        padding: theme.spacing.unit,
+        animation: "fadeIn 2s infinite alternate"
+    },
+});
+
+export { page, header, navBar, futureImage, donation, configurator, warning };

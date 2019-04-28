@@ -39,23 +39,23 @@ class DonateStepper extends React.Component {
     }
 
     render() {
-        const { selectedStep, children, classes, orientation, onChange } = this.props;
+        const { selectedStep, children, classes, onChange } = this.props;
         const paperClass = classNames(
             classes.root,
-            classes[orientation]
+            classes["vertical"]
         );
-        const connector = React.cloneElement(<DonateStepperConnector />, { orientation, classes });
+        const connector = React.cloneElement(<DonateStepperConnector />, { orientation: "vertical", classes });
         const childrenArray = React.Children.toArray(children);
         return (
             <Paper square elevation={0} className={paperClass}>
                 {childrenArray.map((step, index) => {
                     const stepProps = {
                         index,
-                        orientation,
+                        orientation: "vertical",
                         fulfilled: index <= selectedStep,
                         last: index + 1 === childrenArray.length,
                         first: index === 0,
-                        selected: index === selectedStep,
+                        selected: index == selectedStep,
                         key: index,
                         index,
                         onClick: () => onChange(index)
@@ -92,11 +92,11 @@ class DonateStep extends React.Component {
 
         let circle = undefined;
         if (fulfilled && !selected) {
-            circle = <circle cx="12" cy="12" r="7" onClick={onClick}/>;
+            circle = <circle cx="12" cy="12" r="7" onClick={onClick}/>//<rect x="5" y="5" width="14" height="14"/>;
         } else if (selected) {
-            circle = <circle cx="12" cy="12" r="10" onClick={onClick}/>;
+            circle = <circle cx="12" cy="12" r="10" onClick={onClick}/>;//<rect x="2" y="2" width="20" height="20"/>;
         } else {
-            circle = <circle cx="12" cy="12" r="4" onClick={onClick}/>;
+            circle = <circle cx="12" cy="12" r="4" onClick={onClick}/>;// <rect x="8" y="8" width="8" height="8"/>;
         }
 
         let lowerLine = undefined;
@@ -139,54 +139,6 @@ class DonateStep extends React.Component {
                 </span>
             </div>
         );
-    }
-}
-
-class DonateStepperPoop extends React.Component {
-    constructor(props) {
-        super(props);
-        this.props = props;
-        this.state = {};
-    }
-
-    render() {
-        const { classes } = this.props;
-
-        const icon = (
-            <SvgIcon className={classnames(classes.root, classes.active)}>
-                <line x1="12.5" y1="12.5" x2="12.5" y2="24" className={classnames(classes.rootLine, classes.active)} />
-                <circle cx="12" cy="12" r="8" />
-            </SvgIcon>
-        );
-
-        const iconBig = (
-            <SvgIcon className={classnames(classes.root, classes.active)}>
-                <line x1="12.5" y1="12.5" x2="12.5" y2="24" className={classnames(classes.rootLine, classes.active)} />
-                <circle cx="12" cy="12" r="12" />
-            </SvgIcon>
-        );
-
-        const line = (
-            <SvgIcon className={classnames(classes.rootLine, classes.active)}>
-                <line x1="12.5" y1="0" x2="12.5" y2="24" className={classnames(classes.rootLine, classes.active)} />
-            </SvgIcon>
-        );
-        return (
-            <Stepper nonLinear activeStep={2} orientation="vertical" connector={<DonateStepperConnector />}>
-                <Step>
-                    <StepLabel icon={icon}>$10</StepLabel>
-                </Step>
-                <Step>
-                    <StepLabel icon={icon}>$10</StepLabel>
-                </Step>
-                <Step>
-                    <StepLabel icon={iconBig}>$30</StepLabel>
-                </Step>
-                <Step>
-                    <StepLabel>$40</StepLabel>
-                </Step>
-            </Stepper>
-        )
     }
 }
 

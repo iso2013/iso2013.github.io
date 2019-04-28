@@ -3,7 +3,7 @@ import React from 'react';
 import Fade from '@material-ui/core/Fade';
 import Typography from '@material-ui/core/Typography';
 
-import HeaderedPage from '../components/HeaderedPage';
+import { wrapComponents } from '../components/HeaderedPage';
 import ProjectsGroup from '../components/projects/ProjectsGroup';
 
 class Projects extends React.Component {
@@ -22,18 +22,9 @@ class Projects extends React.Component {
     }
 
     render() {
-        return (
-            <Fade in={true} timeout={250}>
-                <HeaderedPage
-                    header={
-                        <Typography variant="display1" align="center" color="inherit">Projects</Typography>
-                    }
-
-                    content={
-                        <ProjectsGroup categories={this.state.categories} projects={this.state.projects} loadingProjects={this.state.loadingProjects} errorMessage={"This is a test"} />
-                    }
-                />
-            </Fade>
+        return wrapComponents(
+            <Typography variant="display1" align="center" color="inherit">Projects</Typography>,
+            <ProjectsGroup categories={this.state.categories} projects={this.state.projects} loadingProjects={this.state.loadingProjects} />
         );
     }
 }

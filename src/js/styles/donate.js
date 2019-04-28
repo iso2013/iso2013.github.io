@@ -1,7 +1,6 @@
 const donateStepper = theme => ({
     root: {
-        display: 'flex',
-        padding: 24
+        display: 'flex'
     },
     horizontal: {
         flexDirection: 'row',
@@ -16,7 +15,8 @@ const donateStepper = theme => ({
         '&$active': {
             stroke: theme.palette.primary.main
         },
-        height: "3px"
+        height: "3px",
+        marginTop: "-0.1px"
     },
     active: {}
 });
